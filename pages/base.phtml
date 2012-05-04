@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title>Aploiki - #strip_html{@page_title}</title>
+	<script type="text/javascript" src="@doc_url/resources/javascripts/prototype.js"></script>
+	<script type="text/javascript" src="@doc_url/resources/javascripts/scriptaculous.js"></script>
+	@theme_html
+	@css
+</head>
+<body>
+	<div align="center">
+		<div id="main_body">
+			<div id="header"><h1>Aploiki</h1><h3>@page_title</h3></div>
+			@menu
+			%errors
+			%praises
+			<div id="main_text">
+				@text
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+<errors>
+	<error>%error<br/></error>
+	<center>
+	<div id="errors" class="error">
+		%show_errors
+	</div>
+	</center>
+	<br/><br/>
+</errors>
+<praises>
+	<praise>%praise<br/></praise>
+	<center>
+	<div id="praises" class="praise">
+		%show_praises
+	</div>
+	</center>
+	<br/><br/>
+</praises>
+<menu>
+	<per>
+		<li class="menu_item"><A href="%location">%title</a></li>
+	</per>
+	<per-active>
+		<li class="menu_item active">%title</li>
+	</per-active>
+	<overall>
+		<ol id="menu">%items</ol>
+	</overall>
+</menu>

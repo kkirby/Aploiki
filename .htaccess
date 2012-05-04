@@ -1,0 +1,21 @@
+RewriteEngine on
+RewriteRule ^pages/.*$ - [F]
+RewriteRule ^resources/required_scripts/.*$ - [F]
+
+RewriteRule ^admin/([^/]+)/?$ ./index.php?page=$1&admin=true [NC,L]
+RewriteRule ^admin/([^/]+)/(.*)$ ./index.php?page=$1&parameters=$2&admin=true [NC,L]
+
+RewriteRule ^module/([^/]+)/?$ ./index.php?module=$1 [NC,L]
+RewriteRule ^module/([^/]+)/(.*)$ ./index.php?module=$1&parameters=$2 [NC,L]
+
+RewriteRule ^actions/.* - [F]
+
+RewriteRule ^action/([^/]+)/?$ ./index.php?action=$1 [NC,L]
+RewriteRule ^action/([^/]+)/(.*)$ ./index.php?action=$1&parameters=$2 [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^/]+)/?$ ./index.php?page=$1 [NC,L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^/]+)/(.*)$ ./index.php?page=$1&parameters=$2 [NC,L]
